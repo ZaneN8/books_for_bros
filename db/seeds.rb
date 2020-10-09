@@ -5,8 +5,8 @@ Sample.destroy_all
   Sample.create(name: Faker::Name.name)
 end
 
-User.destroy_all
-Item.destroy_all
+
+User.create(name: "Zane")
 
 
 5.times do |i|
