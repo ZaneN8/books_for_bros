@@ -1,3 +1,28 @@
 {
-  "dependencies": {}
+  "dependencies": {},
+  "name": "books_for_bros",
+  "description": "- Trello - https://trello.com/b/r2iiDZPx/hackathon-2-book-purchasing-app - Lucid - https://lucid.app/lucidchart/53a340fd-113a-4c0e-a76d-0644673170ac/edit?shared=true&page=0_0#?folder_id=home&browser=icon",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "cd client && npm install --only=dev && npm install && npm run build && cd ..",
+    "deploy": "cp -a client/build/. public/",
+    "heroku-postbuild": "npm run build && npm run deploy && echo 'Client Built'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZaneN8/books_for_bros.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZaneN8/books_for_bros/issues"
+  },
+  "homepage": "https://github.com/ZaneN8/books_for_bros#readme"
 }
