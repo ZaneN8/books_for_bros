@@ -27,10 +27,12 @@ const NavBar = () => {
 
   return (
     <div style={styles.navbar}>
-      <Link to="/">Home</Link>
+      <Link to="/itemshow">Browse Books</Link>
+      <span style={{ marginRight: "20px" }}></span>
+      <Link to="/myCart">My Cart</Link>
       <span style={{ marginRight: "10px" }}></span>
       <div>{correctNavBar()}</div>
-      {user && <Link to="/samplesDemo">Samples</Link>}
+      {/* {user && <Link to="/myCart">My Current Cart</Link>} */}
     </div>
   );
 };
