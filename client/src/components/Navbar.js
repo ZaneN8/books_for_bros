@@ -30,7 +30,8 @@ const NavBar = () => {
       <Link to="/itemshow">Browse Books</Link>
       <span style={{ marginRight: "20px" }}></span>
       <Link to="/myCart">My Cart</Link>
-      <span style={{ marginRight: "10px" }}></span>
+      <span style={{ marginRight: "20px" }}></span>
+      <img src="https://fscomps.fotosearch.com/compc/TBZ/TBZ105/book-flexing-muscles-clipart__bk01p003.jpg" />
       <div>{correctNavBar()}</div>
       {/* {user && <Link to="/myCart">My Current Cart</Link>} */}
     </div>

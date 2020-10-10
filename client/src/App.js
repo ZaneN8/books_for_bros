@@ -10,6 +10,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./components/Register";
 import SamplesDemo from "./samples/SamplesDemo";
 import MyCart from "./components/MyCart";
+import "./App.css";
 
 function App() {
   return (

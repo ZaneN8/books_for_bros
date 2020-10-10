@@ -18,6 +18,14 @@ User.create(name: "Zane")
   user.name = Faker::Name.name
   user.save!
   puts user.name = "was made"
+
+  1.times do |c|
+    cart = Cart.new
+    cart.id = c + (i *3)
+    cart.user_id = i
+    cart.save!
+    puts 'Carts seeded'
+  end
 end
 
 50.times do |b|
@@ -27,7 +35,7 @@ end
   item.price = 10
   item.rating = rand(5)
   item.description = Faker::Company.catch_phrase
-  item.image = Faker::Avatar.image(slug: "#{item.name}#{b}", size: "300x300", format: "png", set: "set1")
+  item.image = Faker::LoremFlickr.image(size: "300x300", search_terms: ['book'])
   item.save!
 
   puts "#{item.name} Was made"
