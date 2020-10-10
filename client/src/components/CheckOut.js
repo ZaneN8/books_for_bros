@@ -68,8 +68,10 @@ export const CheckOut = () => {
         <Form.Group controlId="paymentInfo">
           <Form.Label>Card Number</Form.Label>
           <Form.Control type="textarea" placeholder="Card Number" />
+          <br />
           <Form.Label>Name on Card</Form.Label>
           <Form.Control type="textarea" placeholder="Name" />
+          <br />
           <Form.Row>
             <Form.Group as={Col}>
               <Form.Label>Expiration Month</Form.Label>
@@ -80,6 +82,7 @@ export const CheckOut = () => {
               <Form.Control type="textarea" placeholder="Year" />
             </Form.Group>
           </Form.Row>
+          <br />
           <Form.Label>Security Code</Form.Label>
           <Form.Control type="textarea" placeholder="Security Code" />
         </Form.Group>
