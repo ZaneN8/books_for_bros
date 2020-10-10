@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import { addToCart } from "./actions/cartActions";
+import { Button, Card, CardGroup } from "react-bootstrap";
 
 const ItemShow = () => {
   const [items, setItems] = useState([]);
+  // const productList = useContext(ProductContext).products;
 
   const getItem = async () => {
     try {
@@ -21,44 +23,54 @@ const ItemShow = () => {
   }, []);
 
   const handleButton = (id) => {
+    addToCart(id);
     sessionStorage.cart = id;
-    console.log(id);
   };
 
-  console.log(sessionStorage.cart);
+  const renderBooks = () => {
+    return items.map((t) => (
+      <CardGroup style={{ display: "flex", flexDirection: "row" }}>
+        <Card key={t.id} style={{ flex: 1 }}>
+          <Card.Body>
+            <Card.Img style={{ width: "3rem" }} src={t.image} />
+            <Card.Title>{t.name}</Card.Title>
+            <Card.Subtitle>${t.price}</Card.Subtitle>
+            <Card.Subtitle>Stars: {t.rating}</Card.Subtitle>
+            <Card.Text>{t.description}</Card.Text>
+            <Button onClick={() => handleButton(t.id)}>Add to Cart</Button>
+          </Card.Body>
+        </Card>
+      </CardGroup>
+    ));
+  };
+
+  // Card key={t.id} styled={{ width: "18rem" }}>
+
+  // <Card.Img src={t.image} />
+  // <Card.Title>{t.name}</Card.Title>
+  // <Card.Subtitle>${t.price}</Card.Subtitle>
+  // <Card.Subtitle>Stars: {t.rating}</Card.Subtitle>
+  // <p>Summary: {t.description}</p>
+  // <Button onClick={() => handleButton(t.id)}>Add to Cart</Button>
 
   return (
-    <div>
-      <h1>ITEMS PAGE</h1>
-      {items.map((t) => (
-        <div key={t.id}>
-          <img src={t.image} />
-          <h4>{t.name}</h4>
-          <div>${t.price}</div>
-          <div>Stars: {t.rating}</div>
-          <p>Summary: {t.description}</p>
-          <button onClick={() => handleButton(t.id)}>Add to Cart</button>
-          <hr />
-        </div>
-      ))}
-    </div>
+    <>
+      <h1>New Releases!</h1>
+      <div>{renderBooks()}</div>
+    </>
   );
 };
 
-// const mapStateToProps = (state) => {
-//   return { items: state.items };
-// };
+const mapStateToProps = (state) => {
+  return { items: state.items };
+};
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//     addToCart: (id) => {
-//       dispatch(addToCart(id));
-//     },
-//   };
-// };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addToCart: (id) => {
+      dispatch(addToCart(id));
+    },
+  };
+};
 
-// export default ItemShow;
-// export default connect(mapStateToProps, mapDispatchToProps)(ItemShow);
-export default ItemShow;
-
-// :price, :rating, :name, :description, :image
+export default connect(mapStateToProps, mapDispatchToProps)(ItemShow);

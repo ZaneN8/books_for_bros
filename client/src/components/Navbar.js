@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Nav } from "react-bootstrap";
 import { Link, useHistory } from "react-router-dom";
 import { AuthContext } from "../providers/AuthProvider";
 
@@ -10,39 +11,38 @@ const NavBar = () => {
   const correctNavBar = () => {
     if (user) {
       return (
-        <>
+        <Nav variant="tabs">
           <Link onClick={() => handleLogout(history)}>Logout</Link>
-        </>
+          <span style={{ color: "aqua" }}></span>
+        </Nav>
       );
     } else {
       return (
-        <>
-          <Link to="/login">Login</Link>
-          <span style={{ marginRight: "10px" }}></span>
-          <Link to="/register">Register</Link>
-        </>
+        <Nav variant="tabs">
+          <Nav.Link href="/login">Login</Nav.Link>
+          <Nav.Link href="/register">Register</Nav.Link>
+        </Nav>
       );
     }
   };
 
   return (
-    <div style={styles.navbar}>
-      <Link to="/itemshow">Browse Books</Link>
-      <span style={{ marginRight: "20px" }}></span>
-      <Link to="/myCart">My Cart</Link>
-      <span style={{ marginRight: "20px" }}></span>
-      <img src="https://fscomps.fotosearch.com/compc/TBZ/TBZ105/book-flexing-muscles-clipart__bk01p003.jpg" />
-      <div>{correctNavBar()}</div>
-      {/* {user && <Link to="/myCart">My Current Cart</Link>} */}
-    </div>
+    <Nav variant="pills">
+      <Nav.Item>{correctNavBar()}</Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/home">Home</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/itemShow">Browse Books</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/cart">Reducer Cart</Nav.Link>
+      </Nav.Item>
+      <Nav.Item>
+        <Nav.Link href="/checkOut">Checkout</Nav.Link>
+      </Nav.Item>
+    </Nav>
   );
-};
-
-const styles = {
-  navbar: {
-    background: "black",
-    padding: "10px",
-  },
 };
 
 export default NavBar;

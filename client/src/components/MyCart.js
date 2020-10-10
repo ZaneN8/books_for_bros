@@ -1,7 +1,7 @@
 import React from "react";
 
 const MyCart = () => {
-  return <div>{localStorage.cart}</div>;
+  return <div>{sessionStorage.cart}</div>;
 };
 
 export default MyCart;

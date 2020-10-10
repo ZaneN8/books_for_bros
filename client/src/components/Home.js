@@ -30,9 +30,7 @@ const Home = () => {
         <div key={p.id}>
           <img src={p.image} />
           <h4>{p.name}</h4>
-          <div>${p.price}</div>
           <div>Stars: {p.rating}</div>
-          <p>Summary: {p.description}</p>
         </div>
       </>
     ));
@@ -41,7 +39,7 @@ const Home = () => {
   return (
     <div>
       <h1>Welcome to Books For Bros dot Com</h1>
-      <h3>Books for only the manliest men!</h3>
+      <h3>BOOKS FOR ONLY THE MANLIEST MEN!</h3>
       <div>{renderItems()}</div>
     </div>
   );

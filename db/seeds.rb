@@ -35,7 +35,7 @@ end
   item.price = 10
   item.rating = rand(5)
   item.description = Faker::Company.catch_phrase
-  item.image = Faker::LoremFlickr.image(size: "300x300", search_terms: ['book'])
+  item.image = Faker::LoremPixel.image(category: 'business')
   item.save!
 
   puts "#{item.name} Was made"

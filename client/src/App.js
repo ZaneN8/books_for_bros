@@ -10,6 +10,8 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./components/Register";
 import SamplesDemo from "./samples/SamplesDemo";
 import MyCart from "./components/MyCart";
+import CheckOut from "./components/CheckOut";
+import Cart from "./components/Cart";
 import "./App.css";
 
 function App() {
@@ -25,6 +27,8 @@ function App() {
             <Route exact path="/samplesDemo" component={SamplesDemo} />
             <Route exact path="/itemShow" component={ItemShow} />
             <Route exact path="/myCart" component={MyCart} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/checkOut" component={CheckOut} />
             <Route component={NoMatch} />
           </Switch>
         </FetchUser>

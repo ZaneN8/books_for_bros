@@ -1,47 +1,45 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+// import { IconName } from "react--icons/bs";
+
 class Cart extends Component {
   render() {
     let addedItems = this.props.items.length ? (
       this.props.items.map((item) => {
         return (
-          <li className="collection-item avatar" key={item.id}>
+          <li key={item.id}>
             <div className="item-img">
-              <img src={item.img} alt={item.img} className="" />
+              <img src={item.img} alt={item.image} className="" />
             </div>
             <div className="item-desc">
-              <span className="title">{item.title}</span>
-              <p>{item.desc}</p>
+              <span className="title">{item.name}</span>
+              <p>{item.description}</p>
               <p>
                 <b>Price: {item.price}$</b>
               </p>
-              <p>
-                <b>Quantity: {item.quantity}</b>
-              </p>
+              <p>{/* <b>Quantity: {item.quantity}</b> */}</p>
               <div className="add-remove">
                 <Link to="/cart">
-                  <i className="material-icons">arrow_drop_up</i>
+                  <i> Add - remove </i>
                 </Link>
                 <Link to="/cart">
-                  <i className="material-icons">arrow_drop_down</i>
+                  <i>arrow drop down</i>
                 </Link>
               </div>
-              <button className="waves-effect waves-light btn red remove">
-                Remove
-              </button>
+              <button>Remove</button>
             </div>
           </li>
         );
       })
     ) : (
-      <p>Nothing.</p>
+      <p>You get Nothing!</p>
     );
     return (
       <div className="container">
-        <div className="cart">
+        <div>
           <h5>You have ordered:</h5>
-          <ul className="collection">{addedItems}</ul>
+          <ul>{addedItems}</ul>
         </div>
       </div>
     );
