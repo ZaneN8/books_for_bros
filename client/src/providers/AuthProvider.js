@@ -15,7 +15,6 @@ const AuthProvider = (props) => {
       history.push("/");
     } catch (err) {
       alert("Error: failed to register");
-      debugger;
     }
   };
 
@@ -26,7 +25,6 @@ const AuthProvider = (props) => {
       history.push("/");
     } catch (err) {
       alert("Error: failed to log in");
-      debugger;
     }
   };
 
@@ -37,7 +35,6 @@ const AuthProvider = (props) => {
       history.push("/login");
     } catch (err) {
       alert("Error: failed to log out");
-      debugger;
     }
   };
 
